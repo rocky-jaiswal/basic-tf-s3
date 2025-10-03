@@ -13,6 +13,10 @@ remote_state {
   }
 }
 
+inputs = {
+  region = "eu-central-1"
+}
+
 generate "provider" {
   path      = "provider.tf"
   if_exists = "overwrite_terragrunt"
@@ -21,8 +25,4 @@ provider "aws" {
   region = var.region
 }
 EOF
-}
-
-inputs = {
-  region = "eu-central-1"
 }

@@ -5,3 +5,8 @@ variable "bucket_name" {
 variable "environment" {
   type = string
 }
+
+variable "region" {
+  type    = string
+  default = "eu-central-1"
+}

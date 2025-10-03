@@ -2,32 +2,21 @@
 
 ## Apply single module in dev
 
-cd environments/dev/s3
+cd environments/dev/s3-bucket
+terragrunt plan
 terragrunt apply
 
-cd environments/dev/vpc
-terragrunt apply
-
-## Apply with dependencies (VPC first, then EC2)
-
-cd environments/dev/ec2
-terragrunt apply # Automatically applies VPC first!
-
-## Apply ALL modules in dev environment
+## Plan / Apply ALL modules in dev environment
 
 cd environments/dev
-terragrunt run-all apply
+terragrunt plan --all
+terragrunt apply --all
 
 ## Apply specific modules only
 
 cd environments/dev
-terragrunt run-all apply --terragrunt-include-dir vpc --terragrunt-include-dir ec2
-
-## Plan all modules in dev
-
-cd environments/dev
-terragrunt run-all plan
+terragrunt plan --all --queue-include-dir=s3-bucket
 
 ## Apply everything (all environments, all modules)
 
-terragrunt run-all apply
+terragrunt apply --all
