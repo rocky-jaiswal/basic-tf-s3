@@ -70,3 +70,11 @@ Thumbs.db
 # Exception: Allow example/template files
 !*.tfvars.example
 !*.env.example
+
+# Terragrunt cache
+.terragrunt-cache/
+
+# Ignore secrets files (YAML, JSON)
+secrets.yaml
+secrets.yml
+secrets.json
