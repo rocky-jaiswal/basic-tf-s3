@@ -3,6 +3,12 @@ variable "environment" {
   description = "Environment name"
 }
 
+variable "project_name" {
+  description = "Project name for resource naming"
+  type        = string
+  default     = "app-k3s"
+}
+
 variable "vpc_cidr" {
   type        = string
   description = "CIDR block for VPC"
@@ -21,10 +27,10 @@ variable "private_subnet_cidr" {
   default     = "10.0.2.0/24"
 }
 
-variable "availability_zone" {
-  type        = string
+variable "availability_zones" {
+  type        = list(string)
+  default     = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
   description = "Availability zone"
-  default     = "eu-central-1a"
 }
 
 variable "region" {

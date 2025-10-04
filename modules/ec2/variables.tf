@@ -19,29 +19,33 @@ variable "vpc_cidr" {
   description = "VPC CIDR block"
 }
 
-variable "public_subnet_id" {
-  type        = string
+variable "public_subnet_ids" {
+  type        = list(string)
   description = "Public subnet ID"
 }
 
-variable "private_subnet_id" {
-  type        = string
+variable "private_subnet_ids" {
+  type        = list(string)
   description = "Private subnet ID"
 }
 
 variable "public_instance_count" {
   type        = number
   description = "Number of public instances"
-  default     = 2
+  default     = 1
 }
 
 variable "private_instance_count" {
   type        = number
   description = "Number of private instances"
-  default     = 2
+  default     = 1
 }
 
 variable "region" {
   type    = string
   default = "eu-central-1"
+}
+
+variable "public_ssh_key" {
+  type = "string"
 }

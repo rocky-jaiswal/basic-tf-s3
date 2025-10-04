@@ -11,12 +11,13 @@ dependency "vpc" {
 }
 
 inputs = {
-  environment            = "dev"
-  instance_type          = "t3.small"
-  vpc_id                 = dependency.vpc.outputs.vpc_id
-  vpc_cidr               = dependency.vpc.outputs.vpc_cidr
-  public_subnet_id       = dependency.vpc.outputs.public_subnet_id
-  private_subnet_id      = dependency.vpc.outputs.private_subnet_id
-  public_instance_count  = 2
-  private_instance_count = 2
+  environment             = "dev"
+  instance_type           = "t3.micro"
+  vpc_id                  = dependency.vpc.outputs.vpc_id
+  vpc_cidr                = dependency.vpc.outputs.vpc_cidr
+  public_subnet_ids       = dependency.vpc.outputs.public_subnet_ids
+  private_subnet_ids      = dependency.vpc.outputs.private_subnet_ids
+  public_instance_count   = 1
+  private_instance_count  = 1
+  public_ssh_key          = "ssh-ed25519 XXX rocky.jaiswal@gmail.com"
 }
